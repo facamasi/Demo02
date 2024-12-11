@@ -5,13 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MyLibrary;
-public abstract class Employee
+public class Employee
 {
     public int Id { get; set; }
     public string Name { get; set; }
+
     public virtual decimal CalculateMonthlyPayment() 
     {
         return 12000;
+    }
+
+    public int GetPaymentsDays()
+    { 
+        return 30;
     }
 }  
 
@@ -29,5 +35,12 @@ public class Manager : Employee
     
 }
 
-public class Developer : Employee { }
+public class Developer : Employee 
+{
+   // public override int GetPaymentsDays() => 20;
+    public new int GetPaymentsDays()
+    {
+        return 20;
+    }
+}
 
